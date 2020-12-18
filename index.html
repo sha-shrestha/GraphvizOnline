@@ -8,7 +8,42 @@
 
 <body>
   <pre id="editor">digraph G {
- a -> b
+    digraph G {
+    
+      compound=false;
+      node [margin=0.1 fontcolor=black fontsize=10 width=0.5 height=0.2 shape=box fontname=arial]
+      edge [arrowsize=0.3 fontname=arial]
+      
+      graph [splines=ortho, nodesep=0.2 ranksep = 0.5]
+      rankdir = "LR";
+      overlap = false;
+      concentrate=false
+      ratio = fill
+      splines=true;
+      
+      subgraph cluster0 {
+      a;
+      b;
+      c;
+      label = "cluster0";
+      }
+      
+      subgraph cluster1 {
+      d;
+      e;
+      label = "cluster1";
+      }
+      
+      b [fillcolor=yellow label="b"]
+      d [label="d"]
+      
+      a -> {c d}
+      b-> {c d}
+      e -> c [label="e to c"]
+      f -> c
+      g -> a
+      a -> f;
+      }
 }</pre>
   <div id="options" style="display: none;">
     <label id="engine">
